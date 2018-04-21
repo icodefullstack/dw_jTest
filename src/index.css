@@ -2,4 +2,38 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  color: gray;
+}
+
+h2{
+
+}
+
+#imglist{
+  list-style-type: none;
+  padding: 0;
+}
+
+.itemcontainer{
+position: relative;
+box-shadow: 0px  12px 12px -12px gray;
+
+
+}
+.info{
+  text-transform: uppercase;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 8px;
+  background: rgba(0,0,0, .2);
+  color: white;
+}
+li img{
+
+  max-height: 256px;
+  min-height: 256px;
+  width: 100%;
+
 }
