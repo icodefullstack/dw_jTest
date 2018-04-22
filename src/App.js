@@ -1,14 +1,20 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+import Home from './Home';
+import Description from './Description';
 import Nav from './Nav';
 
-class App extends React.Component{
-  render(){
-    return(
+const App = () => (
+  <div>
+    <header>
+      <Nav />
+    </header>
 
-        <Nav />
-
-    )
-  }
-}
+    <main>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/description" component={Description} />
+    </main>
+  </div>
+)
 
 export default App;
