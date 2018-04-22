@@ -1,3 +1,7 @@
+/*
+the main Component. It puts together the other components 
+*/
+
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Home from './Home';

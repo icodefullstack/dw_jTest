@@ -1,22 +1,19 @@
+/*
+The home page renders the items from the api.
+*/
 import React from 'react';
 import { connect } from 'react-redux';
-
+import {Link} from "react-router-dom";
 import { bindActionCreators } from 'redux';
 import {
-  changeurl,
-  loadData
+  changeurl
 } from './urlhandler'
 
 class Home extends React.Component {
 
 
   render() {
-
-
-    const {url, data} = this.props;
-
-    console.log(data.length);
-
+    const { data} = this.props;
     if(data.length === 0){
       console.log("Loading...");
       return(
@@ -24,64 +21,47 @@ class Home extends React.Component {
       );
     }else{
       return (
-              <div className="container">
+        <div className="container">
+        <h2>Pixabay Images Viewer</h2>
 
-              <h2>First Page</h2>
-              <span>Required in the test Description </span>
-
-              <ul id="imglist">
-              {
-
-                data.map((item, index)=>{
-                  console.log(item.likes);
-                  return(
-                    <div>
-                    <li key={index} className ="col-sm-4">
-                    <div className = "itemcontainer ">
-                    <div className="info">
-                      {item.tags}
-                      </div>
-                      <img className ="img img-responsive" src={item.webformatURL} alt="Logo" />
-                      </div>
-                    </li>
-                    </div>
-                  )
-                })
-
-              }
-            </ul>
-
+        <ul id="imglist">
+        {
+          data.map((item, index)=>{
+            return(
+              <li key={index} className ="col-sm-4">
+              <div className = "itemcontainer ">
+              <div className="info">
+              {item.tags}
               </div>
-            );
+              <Link to ="/description">
+              <img onClick = {()=>{this.props.changeurl(item)}} className ="img img-responsive" src={item.webformatURL} alt="Logo" />
+              </Link>
+              </div>
+              </li>
+            )
+          })
+        }
+        </ul>
+
+        </div>
+      );
     }
 
 
-    }
   }
+}
 
 
 const mapStateToProps = state => ({
-  url: state.urlhandler.url,
+  selected: state.urlhandler.selected,
   data: state.urlhandler.data
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  changeurl,
-  loadData
-
+  changeurl
 }, dispatch);
 
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps)(Home);
-
-
-  // <li key={index} className ="col-sm-4">
-  // <div className = "itemcontainer ">
-  // <div className="info">
-  //   {item.tags}
-  //   </div>
-  //   <img className ="img img-responsive" src={item.webformatURL} alt="Logo" />
-  //   </div>
-  // </li>

@@ -5,10 +5,6 @@ body {
   color: gray;
 }
 
-h2{
-
-}
-
 #imglist{
   list-style-type: none;
   padding: 0;
@@ -17,9 +13,8 @@ h2{
 .itemcontainer{
 position: relative;
 box-shadow: 0px  12px 12px -12px gray;
-
-
 }
+
 .info{
   text-transform: uppercase;
   position: absolute;
@@ -30,10 +25,14 @@ box-shadow: 0px  12px 12px -12px gray;
   background: rgba(0,0,0, .2);
   color: white;
 }
-li img{
 
+#imglist li {
+margin-bottom: 32px;
+}
+
+#imglist li img{
   max-height: 256px;
   min-height: 256px;
   width: 100%;
-
+  cursor: pointer;
 }

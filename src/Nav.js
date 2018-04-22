@@ -5,6 +5,7 @@ const Nav = () => (
   <nav className="navbar navbar-default">
   <div className="container-fluid">
     <div className="navbar-header">
+
       <a className="navbar-brand" href = "/">
         Design Wizard
       </a>
@@ -13,9 +14,6 @@ const Nav = () => (
       <ul className = "nav navbar-nav">
         <li>
           <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/description">Description</Link>
         </li>
       </ul>
     </div>
